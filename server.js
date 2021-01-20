@@ -3,6 +3,13 @@ const app = express()
 const PORT = process.env.PORT || 8080
 
 app.get('/', (req, res) => res.send('Hello World'))
+
+app.get('/opal/:message', (req, res) => {
+    const { params } = req
+    res.json({ message: 'Ahoy!', params })
+  })
+  
+
 app.listen(PORT, () => {
     console.log(`Server is running on port : ${PORT}`)
 })
